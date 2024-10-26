@@ -12,7 +12,6 @@ const TicketInfo = () => {
   console.log("cao");
   console.log(uuid);
   console.log("bella");
-  // http://localhost:3000/ticketInfo/details?uuid=614fae14-362b-4c89-adbb-1b2adff53fd4
 
   const location = useLocation();
 
@@ -22,17 +21,8 @@ const TicketInfo = () => {
       localStorage.setItem("returnUrl", location.pathname);
       loginWithRedirect({
         redirectUri: `https://weblabfrontend.onrender.com/ticketInfo/details?uuid=${uuid}`, // Trenutni URL stranice
-        // appState: {
-        //   returnTo: `http://localhost:3000/ticketInfo/details?uuid=${uuid}`,
-        // },
-        // Trenutni URL stranice
-        //appState: { returnTo: `http://localhost:3000/ticketInfo/details/${uuid}` },
       });
     } else if (isAuthenticated) {
-      // Dohvati podatke o ulaznici nakon što je korisnik autentificiran
-      console.log("eriki");
-      console.log(uuid);
-      console.log("bato");
       fetch(`https://weblabbackend.onrender.com/getTicketInfo/${uuid}`)
         .then((response) => {
           if (!response.ok) {
@@ -46,7 +36,6 @@ const TicketInfo = () => {
         .catch((error) => {
           console.error("There was a problem with the fetch operation:", error);
         });
-      console.log(ticketInfo);
     }
   }, [isAuthenticated, isLoading, loginWithRedirect]);
   if (isLoading) {
@@ -56,9 +45,6 @@ const TicketInfo = () => {
   if (!isAuthenticated) {
     return <div>Redirecting to login...</div>;
   }
-
-  console.log("AAAAAAAAAAAAA");
-  console.log(ticketInfo);
 
   return (
     <div>
@@ -76,8 +62,6 @@ const TicketInfo = () => {
         )}
         <LogoutButton></LogoutButton>
       </>
-
-      {/* Prikaz imena prijavljenog korisnika */}
     </div>
   );
 };
