@@ -8,7 +8,7 @@ dotenv.config();
 console.log(process.env.DB_USER);
 app.use(
   cors({
-    origin: "https://weblabfrontend.onrender.com/",
+    origin: "https://weblabfrontend.onrender.com",
   })
 );
 const pool = new Pool({
