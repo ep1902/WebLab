@@ -21,7 +21,7 @@ const TicketInfo = () => {
     if (!isAuthenticated && !isLoading) {
       localStorage.setItem("returnUrl", location.pathname);
       loginWithRedirect({
-        redirectUri: `https://weblabfrontend.onrender.com//ticketInfo/details?uuid=${uuid}`, // Trenutni URL stranice
+        redirectUri: `https://weblabfrontend.onrender.com/ticketInfo/details?uuid=${uuid}`, // Trenutni URL stranice
         // appState: {
         //   returnTo: `http://localhost:3000/ticketInfo/details?uuid=${uuid}`,
         // },
