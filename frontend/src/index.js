@@ -1,25 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Auth0Provider } from '@auth0/auth0-react';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Auth0Provider } from "@auth0/auth0-react";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
+const domainMy = process.env.REACT_APP_DOMAIN;
+const clientIdMy = process.env.REACT_APP_CLIENTID;
 
 root.render(
   <Auth0Provider
-    domain="dev-yu381h2mtpkwtf3f.us.auth0.com"
-    clientId="hGxcWOi9rBRcCSiXlzsq5CWtQ7i270Yi"
+    domain={domainMy}
+    clientId={clientIdMy}
     cacheLocation="localstorage"
     authorizationParams={{
       redirect_uri: window.location.origin,
-      
     }}
   >
     <App />
-    </Auth0Provider>
+  </Auth0Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

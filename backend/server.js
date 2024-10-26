@@ -1,20 +1,23 @@
 const express = require("express");
 const { Pool } = require("pg");
+const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
-
+dotenv.config();
+console.log(process.env.DB_USER);
 app.use(
   cors({
     origin: "http://localhost:3000",
   })
 );
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "webProjekt1",
-  password: "zagorec2003",
-  port: 5434,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: "weblabosbaza",
+  password: process.env.DB_PASSWORD,
+  port: 5432,
+  ssl: true,
 });
 app.use(express.json());
 

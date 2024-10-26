@@ -72,7 +72,7 @@ const TicketInfo = () => {
             <p>Last name: {ticketInfo.lastname}</p>
           </div>
         ) : (
-          <div>No data</div>
+          <div>Ticket with this id doesn't exist</div>
         )}
         <LogoutButton></LogoutButton>
       </>
