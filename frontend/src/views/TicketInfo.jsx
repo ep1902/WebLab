@@ -21,7 +21,7 @@ const TicketInfo = () => {
     if (!isAuthenticated && !isLoading) {
       localStorage.setItem("returnUrl", location.pathname);
       loginWithRedirect({
-        redirectUri: `http://localhost:3000/ticketInfo/details?uuid=${uuid}`, // Trenutni URL stranice
+        redirectUri: `https://weblabfrontend.onrender.com//ticketInfo/details?uuid=${uuid}`, // Trenutni URL stranice
         // appState: {
         //   returnTo: `http://localhost:3000/ticketInfo/details?uuid=${uuid}`,
         // },
@@ -33,7 +33,7 @@ const TicketInfo = () => {
       console.log("eriki");
       console.log(uuid);
       console.log("bato");
-      fetch(`http://localhost:5000/getTicketInfo/${uuid}`)
+      fetch(`https://weblabbackend.onrender.com/getTicketInfo/${uuid}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");

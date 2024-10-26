@@ -8,7 +8,7 @@ dotenv.config();
 console.log(process.env.DB_USER);
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://weblabfrontend.onrender.com/",
   })
 );
 const pool = new Pool({
@@ -129,7 +129,7 @@ app.post("/api/createTicket", (req, res) => {
           if (counter < 3) {
             newTicket = await insertTicket(vatin, firstName, lastName);
             console.log(newTicket.id);
-            const url = `http://localhost:3000/ticketInfo/details?uuid=${newTicket.id}`;
+            const url = `https://weblabfrontend.onrender.com/ticketInfo/details?uuid=${newTicket.id}`;
             console.log(url);
             try {
               const qrcode = await QRCode.toBuffer(url, { type: "png" });

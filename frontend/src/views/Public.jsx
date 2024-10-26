@@ -7,7 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Home = () => {
   const [ticketCount, setTicketCount] = useState(null);
   const { user, isAuthenticated } = useAuth0();
-  fetch(`http://localhost:5000/getTicketCount`)
+  fetch(`https://weblabbackend.onrender.com/getTicketCount`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
